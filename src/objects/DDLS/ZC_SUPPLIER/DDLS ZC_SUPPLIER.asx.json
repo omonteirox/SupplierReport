@@ -9,10 +9,10 @@
     "AS4USER":"SAP_CUSTOMER",
     "AS4DATE":"0000-00-00",
     "AS4TIME":"00:00:00",
-    "SOURCE":"@AccessControl.authorizationCheck: #CHECK\r\n\r\n@EndUserText.label: 'Supplier - Projection View'\r\n\r\n@Metadata.allowExtensions: true\r\n\r\n@Search.searchable: true\r\n\r\ndefine root view entity ZC_Supplier\r\n  provider contract transactional_query\r\n  as projection on ZI_Supplier\r\n\r\n{\r\n  key Supplier,\r\n  key BusinessPartner,\r\n\r\n      @Search.defaultSearchElement: true\r\n      @Search.fuzzinessThreshold: 0.8\r\n      BusinessPartnerName,\r\n\r\n      @Search.defaultSearchElement: true\r\n      @Search.fuzzinessThreshold: 0.7\r\n      OrganizationBPName1,\r\n\r\n      SearchTerm1,\r\n      Industry,\r\n      BusinessPartnerCategory,\r\n\r\n      @Consumption.valueHelpDefinition: [ { entity: { name: 'I_SupplierAccountGroupStdVH',\r\n                                                      element: 'SupplierAccountGroup' } } ]\r\n      SupplierAccountGroup,\r\n\r\n      Customer,\r\n      PostingIsBlocked,\r\n      PurchasingIsBlocked,\r\n      PaymentIsBlockedForSupplier,\r\n      DeletionIndicator,\r\n      SupplierCorporateGroup,\r\n      AuthorizationGroup,\r\n      VATLiability,\r\n      IsBusinessPurposeCompleted,\r\n      ReferenceAccountGroup,\r\n\r\n      _BusinessPartner\r\n}\r\n/*+[internal] {\n\"BASEINFO\":\n{\n\"FROM\":\n[\n\"ZI_SUPPLIER\"\n],\n\"ASSOCIATED\":\n[\n\"I_BUSINESSPARTNER\"\n],\n\"BASE\":\n[\n\"ZI_SUPPLIER\"\n],\n\"ANNO_REF\":\n[],\n\"SCALAR_FUNCTION\":\n[],\n\"VERSION\":0,\n\"ANNOREF_EVALUATION_ERROR\":\"\"\n}\n}*/",
+    "SOURCE":"@AccessControl.authorizationCheck: #CHECK\r\n\r\n@EndUserText.label: 'Supplier - Projection View'\r\n\r\n@Metadata.allowExtensions: true\r\n@Metadata.ignorePropagatedAnnotations: true\r\n\r\n@Search.searchable: true\r\n\r\ndefine root view entity ZC_Supplier\r\n  provider contract transactional_query\r\n  as projection on ZI_Supplier\r\n\r\n{\r\n  key Supplier,\r\n  key BusinessPartner,\r\n\r\n      @Search.defaultSearchElement: true\r\n      @Search.fuzzinessThreshold: 0.8\r\n      BusinessPartnerName,\r\n\r\n      @Search.defaultSearchElement: true\r\n      @Search.fuzzinessThreshold: 0.7\r\n      OrganizationBPName1,\r\n\r\n      SearchTerm1,\r\n      Industry,\r\n      BusinessPartnerCategory,\r\n\r\n      @Consumption.valueHelpDefinition: [ { entity: { name: 'I_SupplierAccountGroupStdVH',\r\n                                                      element: 'SupplierAccountGroup' } } ]\r\n      SupplierAccountGroup,\r\n\r\n      Customer,\r\n      PostingIsBlocked,\r\n      PurchasingIsBlocked,\r\n      PaymentIsBlockedForSupplier,\r\n      DeletionIndicator,\r\n      SupplierCorporateGroup,\r\n      AuthorizationGroup,\r\n      VATLiability,\r\n      IsBusinessPurposeCompleted,\r\n      ReferenceAccountGroup,\r\n\r\n      _BusinessPartner\r\n}\r\n/*+[internal] {\n\"BASEINFO\":\n{\n\"FROM\":\n[\n\"ZI_SUPPLIER\"\n],\n\"ASSOCIATED\":\n[\n\"I_BUSINESSPARTNER\"\n],\n\"BASE\":\n[\n\"ZI_SUPPLIER\"\n],\n\"ANNO_REF\":\n[],\n\"SCALAR_FUNCTION\":\n[],\n\"VERSION\":0,\n\"ANNOREF_EVALUATION_ERROR\":\"\"\n}\n}*/",
     "PARENTNAME":"",
     "ACTFLAG":"",
-    "CHGFLAG":"",
+    "CHGFLAG":"D",
     "SOURCE_TYPE":"P",
     "SOURCE_ORIGIN":"0",
     "ABAP_LANGUAGE_VERSION":"5"
@@ -184,20 +184,32 @@
    },
    {
     "STRUCOBJN":"ZC_SUPPLIER",
+    "NAME":"METADATA",
+    "POSITION":7,
+    "VALUE":""
+   },
+   {
+    "STRUCOBJN":"ZC_SUPPLIER",
     "NAME":"METADATA.ALLOWEXTENSIONS",
     "POSITION":6,
     "VALUE":"true"
    },
    {
     "STRUCOBJN":"ZC_SUPPLIER",
+    "NAME":"METADATA.IGNOREPROPAGATEDANNOTATIONS",
+    "POSITION":8,
+    "VALUE":"true"
+   },
+   {
+    "STRUCOBJN":"ZC_SUPPLIER",
     "NAME":"SEARCH",
-    "POSITION":7,
+    "POSITION":9,
     "VALUE":""
    },
    {
     "STRUCOBJN":"ZC_SUPPLIER",
     "NAME":"SEARCH.SEARCHABLE",
-    "POSITION":8,
+    "POSITION":10,
     "VALUE":"true"
    }
   ]
